@@ -213,7 +213,7 @@ header {
 /* ============ PROJECTS ============ */
 .projects { border-top: 1px solid var(--line); }
 .project {
-  display: grid; grid-template-columns: 1.1fr 1.6fr auto; gap: 28px; align-items: center;
+  display: grid; grid-template-columns: 1.1fr 1.6fr 120px; gap: 28px; align-items: center;
   padding: 26px 8px; border-bottom: 1px solid var(--line); text-decoration: none;
   transition: background-color .15s;
 }
@@ -224,6 +224,21 @@ header {
 .project .go { font-size: 13px; font-weight: 700; color: var(--orange); white-space: nowrap; }
 .project .go.muted { color: var(--ink-soft); font-weight: 500; }
 div.project:hover { background: transparent; }
+
+.project .badge, .project .go { justify-self: end; }
+.sub { font-size: 14px; font-weight: 700; color: var(--green); margin: 0 0 14px; }
+.sub + .projects { margin-bottom: 0; }
+#automation { margin-top: 64px; }
+.auto-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.auto-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.auto-card .for { font-size: 12px; color: var(--orange); font-weight: 500; }
+.auto-card h4 { margin: 0; font-size: 18px; font-weight: 700; }
+.auto-card p { margin: 0 0 6px; font-size: 13px; color: var(--ink-soft); flex: 1; }
+.auto-card .tag { font-size: 12px; padding: 3px 9px; background: var(--bg); }
+.mini-grid { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); border-top: 1px solid var(--line); }
+.mini-grid li { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; }
+.mini-grid b { font-size: 14px; }
+.mini-grid span { font-size: 12px; color: var(--ink-soft); }
 
 /* ============ TOOLS ============ */
 #tools { background: var(--bg-alt); border-block: 1px solid var(--line); }
@@ -269,6 +284,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   .skill-row { grid-template-columns: 1fr; gap: 10px; }
   .project { grid-template-columns: 1fr; gap: 8px; padding-inline: 0; }
   .certs { margin-left: 0; }
+  .auto-grid { grid-template-columns: 1fr; }
   .steps { margin-left: 0; grid-template-columns: 1fr; border-top: 0; border-left: 2px solid var(--green); }
   .steps li, .steps li + li { padding: 0 0 26px 24px; border-left: 0; }
   .steps li::before, .steps li + li::before { top: 4px; left: -7px; }
@@ -353,7 +369,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
             </div>
             <div class="skill-row">
               <h3>GenAI &amp; agents</h3>
-              <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">OpenAI API</span><span class="tag">Ollama</span><span class="tag">crewai</span><span class="tag">AI agent patterns</span></div>
+              <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">OpenAI API</span><span class="tag">Ollama</span><span class="tag">AI agent patterns</span></div>
             </div>
             <div class="skill-row">
               <h3>RPA</h3>
@@ -468,13 +484,29 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
     <div class="wrap">
       <div class="sec-head">
         <div class="path">~/<b>projects</b></div>
-        <h2>Things I've built.</h2>
+        <h2>Apps, AI projects and the bots I've built.</h2>
       </div>
-<div class="projects">
+<h3 class="sub">Apps &amp; AI</h3>
+      <div class="projects">
+        <div class="project">
+          <h3>Roofing ERP</h3>
+          <div><p>An ERP for a roofing business that brings customers, site measurements, quotations, material stock, job scheduling and invoicing into one system, replacing spreadsheets and paper job sheets.</p><div class="stack">Python / Django / MySQL</div></div>
+          <span class="badge live">Completed</span>
+        </div>
+        <div class="project">
+          <h3>Electronics Inventory ERP</h3>
+          <div><p>Tracks electronic components by part number and storage location, with stock in and out, low-stock alerts, suppliers, purchase orders and stock-value reports.</p><div class="stack">Python / Django / MySQL</div></div>
+          <span class="badge live">Completed</span>
+        </div>
         <div class="project">
           <h3>Document Q&amp;A with RAG</h3>
           <div><p>Ask questions about your own documents. LangChain pulls the most relevant passages and an LLM answers from them. Also my base for learning how AI agents use tools and chain steps.</p><div class="stack">Python / LangChain / OpenAI API</div></div>
-          <span class="go muted">Ongoing</span>
+          <span class="badge live">Completed</span>
+        </div>
+        <div class="project">
+          <h3>RAG Demo</h3>
+          <div><p>A small, shareable demo of retrieval-augmented generation: load a document, ask a question and see the source passages behind each answer.</p><div class="stack">Python / LangChain / Vector store</div></div>
+          <span class="badge live">Completed</span>
         </div>
         <a class="project" href="#tools">
           <h3>Free tools hub</h3>
@@ -482,6 +514,47 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
           <span class="go">See the tools</span>
         </a>
       </div>
+
+      <h3 class="sub" id="automation">Automation projects</h3>
+      <div class="auto-grid">
+          <article class="auto-card">
+            <span class="for">Manufacturer of scales and analytical instruments</span>
+            <h4>24x7 alarm-handling bot</h4>
+            <p>Wrote a Python middleware service that pulls new alarms from Cisco into MySQL, and an Automation Anywhere bot that picks them up and processes them around the clock. Delivered the full life cycle solo.</p>
+            <div class="tags"><span class="tag">AA 360</span><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Task Scheduler</span></div>
+          </article>
+          <article class="auto-card">
+            <span class="for">Food &amp; beverage company, Singapore</span>
+            <h4>Self-service password reset</h4>
+            <p>Users raise a reset request through Power Apps or a Power Virtual Agents chatbot, and a bot resets the password in the application without IT stepping in.</p>
+            <div class="tags"><span class="tag">Power Automate cloud flows</span><span class="tag">Desktop flows</span><span class="tag">Power Apps</span></div>
+          </article>
+          <article class="auto-card">
+            <span class="for">Food &amp; beverage company, Singapore</span>
+            <h4>Weekly web report automation</h4>
+            <p>A bot downloads files from a website, cleans and reshapes the data in Excel and sends the finished report to the customer every week.</p>
+            <div class="tags"><span class="tag">AA 360</span><span class="tag">Excel macros</span><span class="tag">Power Query</span></div>
+          </article>
+          <article class="auto-card">
+            <span class="for">Food &amp; beverage company, Singapore</span>
+            <h4>Multi-site report collection</h4>
+            <p>Downloads reports from several websites, merges and cleans them in Excel and emails the result. Built end to end on my own.</p>
+            <div class="tags"><span class="tag">Power Automate Desktop</span><span class="tag">Cloud flows</span><span class="tag">Power Query</span></div>
+          </article>
+      </div>
+      <ul class="mini-grid">
+          <li><b>Monthly margin billing</b><span>Generates monthly billing with Excel invoices.</span></li>
+          <li><b>V11 to A360 migration</b><span>Moved a group of existing bots from Automation Anywhere V11 to A360.</span></li>
+          <li><b>Oracle PO updates</b><span>Updates purchase orders in the Oracle desktop app.</span></li>
+          <li><b>Incident creation</b><span>Raises incidents automatically from monitoring alerts.</span></li>
+          <li><b>Role provisioning</b><span>Grants and updates user roles in business applications.</span></li>
+          <li><b>Service contract renewal</b><span>Handles renewal of service contracts end to end.</span></li>
+          <li><b>Insurance cancellation</b><span>Processes customer requests to cancel insurance policies.</span></li>
+          <li><b>Insurance booking</b><span>Books policies and creates customer profiles.</span></li>
+          <li><b>MIS reporting</b><span>Downloads raw data, builds a custom report and sends it to the business.</span></li>
+          <li><b>Price scraping</b><span>Collects insurance product prices from competitor websites for marketing.</span></li>
+          <li><b>Promotion card generation</b><span>Produces daily promotion cards for retail stores.</span></li>
+      </ul>
     </div>
   </section>
 
@@ -515,8 +588,6 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <footer>
   <div class="wrap">
     <span>&copy; <span id="yr"></span> Ismail Shaikh</span>
-    <span><small id="_version">v1.0</small></span>
-
     <span>Built by hand. Hosted in India.</span>
   </div>
 </footer>
@@ -586,7 +657,6 @@ const TOOLS = [
     if (i < text.length) setTimeout(type, 110);
   }, 500);
 })();
-
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
