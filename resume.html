@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume — Ismail Shaikh</title>
+<meta name="description" content="Resume of Mohammed Ismail Shaikh, Python developer and RPA specialist in Mumbai working on Generative AI and Agentic AI automation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23155E3B'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='%23F5821F' font-family='monospace' font-weight='bold'>i</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<!-- Set theme before paint to avoid a flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+/* ============ TOKENS (same as index.html) ============ */
+:root {
+  --bg:        #EDF2EC;
+  --surface:   #F7FAF6;
+  --ink:       #10261A;
+  --ink-soft:  #4A5F52;
+  --line:      #C9D6CB;
+  --green:     #155E3B;
+  --orange:    #E36A0E;
+  --orange-ink:#FFFFFF;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0E1A14;
+    --surface:   #152A1F;
+    --ink:       #E3EFE6;
+    --ink-soft:  #93AB9C;
+    --line:      #25402F;
+    --green:     #5FD39A;
+    --orange:    #FF9A3D;
+    --orange-ink:#1A0F05;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #0E1A14;
+  --surface:   #152A1F;
+  --ink:       #E3EFE6;
+  --ink-soft:  #93AB9C;
+  --line:      #25402F;
+  --green:     #5FD39A;
+  --orange:    #FF9A3D;
+  --orange-ink:#1A0F05;
+  color-scheme: dark;
+}
+
+/* ============ BASE ============ */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+::selection { background: var(--orange); color: var(--orange-ink); }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+
+/* ============ TOOLBAR ============ */
+.bar { width: min(860px, 100% - 32px); margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bar .back { font-size: 13px; color: var(--ink-soft); text-decoration: none; }
+.bar .back:hover { color: var(--green); }
+.bar .actions { display: flex; gap: 10px; }
+.btn {
+  font: inherit; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer;
+  padding: 9px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.btn.primary { background: var(--orange); border-color: var(--orange); color: var(--orange-ink); }
+
+/* ============ SHEET ============ */
+.sheet {
+  width: min(860px, 100% - 32px); margin: 20px auto 64px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: clamp(24px, 5vw, 56px);
+}
+.head { display: grid; gap: 6px; padding-bottom: 22px; border-bottom: 2px solid var(--green); }
+.head h1 { margin: 0; font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+.head .role { margin: 0; font-size: 15px; font-weight: 500; color: var(--green); }
+.contact { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 12.5px; color: var(--ink-soft); }
+.contact a { text-decoration: none; }
+.contact a:hover { color: var(--orange); }
+
+h2 { margin: 30px 0 12px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--orange); }
+p { margin: 0 0 8px; }
+
+.entry { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+h2 + .entry { border-top: 0; padding-top: 0; }
+.entry h3 { margin: 0; font-size: 15px; font-weight: 700; }
+.entry .org { color: var(--ink-soft); font-size: 13px; }
+.entry .when { font-size: 12.5px; color: var(--green); font-weight: 500; text-align: right; white-space: nowrap; }
+.entry ul { grid-column: 1 / -1; margin: 6px 0 0; padding-left: 18px; }
+.entry li { margin-bottom: 3px; }
+
+.skills { display: grid; grid-template-columns: 170px 1fr; gap: 6px 16px; margin: 0; }
+.skills dt { font-weight: 700; color: var(--green); font-size: 13px; }
+.skills dd { margin: 0; font-size: 13px; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+.list { margin: 0; padding-left: 18px; }
+.list li { margin-bottom: 4px; }
+.list small { color: var(--ink-soft); }
+
+@media (max-width: 640px) {
+  .entry { grid-template-columns: 1fr; }
+  .entry .when { text-align: left; }
+  .skills, .two { grid-template-columns: 1fr; }
+  .skills dt { margin-top: 6px; }
+}
+
+/* ============ PRINT / PDF ============ */
+@page { size: A4; margin: 14mm 14mm; }
+@media print {
+  :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+    --bg: #fff; --surface: #fff; --ink: #111; --ink-soft: #444; --line: #ccc; --green: #155E3B; --orange: #B4520A;
+    color-scheme: light;
+  }
+  body { font-size: 10.5pt; line-height: 1.45; }
+  .bar { display: none; }
+  .sheet { width: auto; margin: 0; padding: 0; border: 0; border-radius: 0; }
+  h2 { margin-top: 18px; }
+  .entry, .skills div, .list li { break-inside: avoid; }
+  a { text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="back" href="/">&larr; shaikhismail.com</a>
+  <div class="actions">
+    <button class="btn primary" id="printBtn" type="button">Download PDF</button>
+  </div>
+</div>
+
+<main class="sheet">
+  <header class="head">
+    <h1>Mohammed Ismail Shaikh</h1>
+    <p class="role">Python Developer &amp; RPA Specialist · Generative AI &amp; Agentic AI</p>
+    <ul class="contact">
+      <li>Mumbai, India</li>
+      <li><a href="mailto:hello@shaikhismail.com">hello@shaikhismail.com</a></li>
+      <li><a href="https://shaikhismail.com">shaikhismail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/iamismail">linkedin.com/in/iamismail</a></li>
+      <li><a href="https://github.com/mdism">github.com/mdism</a></li>
+    </ul>
+  </header>
+
+  <h2>Summary</h2>
+  <p>Python developer and RPA specialist with over 10 years of making operations faster through practical, scalable automation. Takes processes from assessment to a running bot (PDD, SDD, build and hand-over) in Automation Anywhere, UiPath and Power Automate, and builds production backends with Django, Flask and FastAPI. Currently focused on Generative AI and Agentic AI: RAG applications with LangChain, AI agents, MCP and n8n workflows.</p>
+
+  <!-- EDIT: work history. Copy one .entry block per role, newest first. -->
+  <h2>Experience</h2>
+  <div class="entry">
+    <div><h3>[Job title]</h3><div class="org">[Company], [City]</div></div>
+    <div class="when">[Start] – Present</div>
+    <ul>
+      <li>[Key responsibility or result]</li>
+    </ul>
+  </div>
+
+  <h2>Selected work</h2>
+  <div class="entry">
+    <div><h3>24x7 alarm-handling bot</h3><div class="org">Manufacturer of scales and analytical instruments</div></div>
+    <div class="when">AA 360 · Python · MySQL</div>
+    <ul>
+      <li>Wrote a Python middleware service that pulls new alarms from Cisco into MySQL, and an Automation Anywhere bot that processes them around the clock. Delivered the full life cycle solo.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div><h3>Self-service password reset, weekly and multi-site reporting</h3><div class="org">Food &amp; beverage company, Singapore</div></div>
+    <div class="when">Power Platform · AA 360</div>
+    <ul>
+      <li>Password resets raised through Power Apps or a Power Virtual Agents chatbot and completed by a bot without IT stepping in.</li>
+      <li>Bots that download, clean and merge web reports in Excel and Power Query, then send them to the business every week.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div><h3>Further RPA delivery</h3><div class="org">Insurance, retail and enterprise clients</div></div>
+    <div class="when">11+ bots</div>
+    <ul>
+      <li>Monthly margin billing, Oracle PO updates, incident creation, role provisioning, service contract renewal, insurance booking and cancellation, MIS reporting, competitor price scraping and daily promotion cards.</li>
+      <li>Migrated a group of bots from Automation Anywhere V11 to A360.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div><h3>Roofing ERP · Electronics Inventory ERP</h3><div class="org">Python / Django / MySQL</div></div>
+    <div class="when">Completed</div>
+    <ul>
+      <li>ERPs covering customers, measurements, quotations, stock, purchase orders, scheduling and invoicing, replacing spreadsheets and paper.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div><h3>Document Q&amp;A with RAG · RAG Demo</h3><div class="org">Python / LangChain / OpenAI API / vector store</div></div>
+    <div class="when">Completed</div>
+    <ul>
+      <li>Answers questions from your own documents and shows the source passages behind each answer.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Python backend</dt><dd>Python, Django, Flask, FastAPI, Django REST framework, Express.js, ORM</dd>
+    <dt>GenAI &amp; agents</dt><dd>LangChain, RAG, OpenAI API, Ollama, AI agent patterns, MCP</dd>
+    <dt>RPA</dt><dd>Automation Anywhere 360, Document Automation, UiPath, Power Automate (cloud &amp; desktop), Power Apps</dd>
+    <dt>Automation</dt><dd>n8n, AA Agentic AI, ETL pipelines, data transformation</dd>
+    <dt>Scripting</dt><dd>Excel macros, VBA, VB Script, Power Query, C# / VB.NET, JavaScript</dd>
+    <dt>Databases</dt><dd>PostgreSQL, MySQL, MS SQL Server, MongoDB, Supabase; query optimization, stored procedures</dd>
+    <dt>Process</dt><dd>Requirement gathering, process streamlining, PDD &amp; SDD, quality assurance</dd>
+    <dt>Embedded &amp; IoT</dt><dd>Embedded C, microcontrollers, Modbus, I2C, Wi-Fi &amp; Bluetooth</dd>
+  </dl>
+
+  <div class="two">
+    <div>
+      <h2>Education</h2>
+      <ul class="list">
+        <li>MS, Computer Science<br><small>University of Mumbai, 2023–2025</small></li>
+        <li>BE, Electronics &amp; Telecommunications<br><small>NES's Gangamai College of Engineering, 2008–2014</small></li>
+      </ul>
+      <h2>Award</h2>
+      <ul class="list">
+        <li>Bot Games Season 4, Trafica award<br><small>Automation Anywhere, Nov 2023</small></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Certifications</h2>
+      <ul class="list">
+        <li>Certified Advanced RPA Professional (A360) <small>· Automation Anywhere, 2023</small></li>
+        <li>Document Automation Masterclass <small>· Automation Anywhere, 2024</small></li>
+        <li>RPA Developer Foundation Diploma <small>· UiPath</small></li>
+        <li>CS50 Python <small>· 2023</small></li>
+        <li>Python for Data Science, AI &amp; Development <small>· IBM</small></li>
+        <li>Python (Basic &amp; Intermediate) <small>· HackerRank</small></li>
+      </ul>
+      <h2>Languages</h2>
+      <p>English, Hindi, Urdu</p>
+    </div>
+  </div>
+</main>
+
+<script>
+document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+</script>
+</body>
+</html>
